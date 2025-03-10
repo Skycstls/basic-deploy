@@ -1,17 +1,28 @@
+1. Clona el repo en el vps
+2. Configura el VPS para poder usar el proyecto
+
+```bash
 apt update
-apt install nodejs npm -y
+apt install  npm -y
 npm install -g pm2
+```
 
-git clone a tu repo
+3. Entra en la carpeta del proyecto y descarga las dependencias
 
-cd a tu repo
-
+```bash
 npm i
+```
+4. Comprueba que el servidor funciona
 
+```bash
 node server.js
+```
 
-pm2 start server.js --name maravillosa-web
+5. Si funciona, instala y configura pm2
 
-pm2 stop maravillosa-web
+```bash
+npm i -g pm2
+pm2 start server.js --name mi-web
+```
 
-pm2 delete maravillosa-web
+6. Asegurate de que `deploy.yml` hace pull donde debe y para y reinicia la aplicacion por el nombre establecido en pm2.
